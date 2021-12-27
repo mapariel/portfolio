@@ -85,3 +85,6 @@ DATABASES = {"default": env.db()}
 
 TIME_ZONE = "UTC"
 USE_TZ = True
+
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])

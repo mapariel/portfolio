@@ -12,6 +12,20 @@ services:
     - 5432:5432
     volumes:
     - data:/var/lib/postgresql/data
+     
+  backend:
+    build: .
+    environment:
+      - PORT=80
+      - SECRET_KEY=hushush
+      - DATABASE_URL=postgresql://portfolio:portfolio@db:5432/portfolio
+      - ALLOWED_HOSTS=*
+    ports:
+      - 9090:80
+    depends_on:
+      - db      
+     
+
 
 volumes:
   data:
