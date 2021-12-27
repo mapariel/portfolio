@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'portfolio.projects.apps.ProjectsConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,3 +81,6 @@ AUTH_PASSWORD_VALIDATORS = [
 STATIC_URL = 'static/'
 
 DATABASES = {"default": env.db()}
+
+TIME_ZONE = "UTC"
+USE_TZ = True
