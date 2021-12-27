@@ -79,3 +79,4 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATIC_URL = 'static/'
 
+DATABASES = {"default": env.db()}
