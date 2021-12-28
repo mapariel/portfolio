@@ -18,17 +18,24 @@ services:
     environment:
       - PORT=80
       - SECRET_KEY=hushush
+      - BASE_URL=http://academie.my-wan.de
       - DATABASE_URL=postgresql://portfolio:portfolio@db:5432/portfolio
       - ALLOWED_HOSTS=*
+      - CORS_ORIGIN_WHITELIST=http://localhost:8080,http://localhost:9091,http://academie.my-wan.de
     ports:
       - 9090:80
+    volumes:  
+      - mediafiles:/mediafiles  
     depends_on:
-      - db      
+      - db
+            
   frontend:
     build:
       context: ../frontend
     ports:
       - 9091:80
+    volumes:
+      - mediafiles:/usr/share/nginx/mediafiles            
     environment:
       - PORT=80
     depends_on:
@@ -38,4 +45,5 @@ services:
 
 volumes:
   data:
+  mediafiles:
   

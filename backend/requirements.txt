@@ -1,6 +1,7 @@
 arrow==1.2.1
 asgiref==3.4.1
 Django==4.0
+django-cors-headers==3.10.1
 django-environ-plus==0.8.1.1
 djangorestframework==3.13.1
 gunicorn==20.1.0

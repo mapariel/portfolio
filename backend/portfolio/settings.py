@@ -12,6 +12,7 @@ if os.path.exists(dot_env):
 # Application definition
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG", default=False)
+BASE_URL = env("BASE_URL")
 
 
 
@@ -25,10 +26,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio.projects.apps.ProjectsConfig',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,6 +96,13 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 STATIC_URL = "/static/"
-
 STATIC_ROOT = str(BASE_LOC.path("staticfiles"))
+
+MEDIA_URL = BASE_URL+"/media/"
+MEDIA_ROOT = "/mediafiles/"
+#MEDIA_ROOT = os.path.join(BASE_LOC, "mediafiles")
+
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST", default=[])
