@@ -38,17 +38,25 @@ const App = () => {
 
     const match = useMatch('/project/:id')
     const project = match ? 
-      projects.find( project => project.id === Number(match.params.id) ) : null 
+      projects.find( project => project.id === match.params.id ) : null 
   
 
 
     return(
       <div className="container-fluid">
-        
-        <div className='row'>
-          <Link style={padding} to="/">home</Link>
-          <Link style={padding} to="/about">about</Link>
-        </div>
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+          <div className="container-fluid">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" style={padding} to="/">home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" style={padding} to="/about">about</Link>
+            </li>
+          </ul>
+          </div>
+        </nav>
+        <div className="container-fluid">
 
         <h1> Projects </h1>    
 
@@ -60,6 +68,7 @@ const App = () => {
             <Route path='project/:id' element={<PageProject project={project} />}  /> 
           </Route>
          </Routes>
+         </div>
        </div>   
     )
 }
