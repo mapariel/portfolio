@@ -38,6 +38,7 @@ services:
       - mediafiles:/usr/share/nginx/mediafiles            
     environment:
       - PORT=80
+      - BASE_URL=http://academie.my-wan.de
     depends_on:
       - backend
 

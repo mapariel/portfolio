@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); 
 
@@ -34,7 +35,15 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html", 
           }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.DefinePlugin({
+          //BASE_API: JSON.stringify('http://localhost:9090/api/'),
+          //BASE_URL: JSON.stringify('http://localhost:9091/'),
+          BASE_API: JSON.stringify('http://academie.my-wan.de/api/'),
+          BASE_URL: JSON.stringify('http://academie.my-wan.de/'),
+
+        },
+        )
     ]
 };
 
