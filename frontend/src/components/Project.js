@@ -23,12 +23,11 @@ const PageProject = ( {project} ) =>{
 
   return(
     <div className="row">
-    <div className="col-2">
-    <img src={project.image} style={{width:"300px",}}></img>
+    <div className="col-md-6">
+    <img src={project.image} className='img-fluid'></img>
     </div>
-    <div className="col-2"/>
 
-    <div className="col-8">
+    <div className="col-md-6">
 
     <h2>{project.title}</h2>
     

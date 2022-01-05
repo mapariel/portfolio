@@ -62,3 +62,18 @@ Finally the frontend container contains a server NGINX to serve the content page
     }
 
 ```
+
+
+
+## Managing the database on the first launch 
+
+For this, I have done it from within the backend container after docker-compose up --build
+There must be a way to automatise it...
+
+`docker exec -it backend_backend_1 sh`
+
+```
+python manage.py migrate
+
+python manage.py createsuperuser
+```

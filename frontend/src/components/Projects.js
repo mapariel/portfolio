@@ -8,7 +8,7 @@ const Projects = ({projects}) => {
   
   return(
   <div className="row">
-    {projects.map( (project) => <div className="col" key = {project.id} >  <Project project={project} />  </div> ) }
+    {projects.map( (project) => <div className="col-md-3" key = {project.id} >  <Project project={project} />  </div> ) }
   </div>
   )
   }
