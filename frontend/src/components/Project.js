@@ -9,22 +9,50 @@ const Project = ( {project} ) =>(
             <h4 className="card-title">{project.title}</h4>
             <p className="card-text">{project.in_brief}</p>
             
-            <Link className="btn btn-primary" to={`/project/${project.id}`}>more</Link>
+            <Link className="btn btn-primary" to={`/${project.id}`}>more</Link>
         </div> {/* */}
         </div>
 )
 
 
-const PageProject = ( {project} ) =>(
-    <div>
-    <h2>{project.title}</h2>
-    <div>{project.in_brief}</div>
-    <div>{project.description}</div>
-    <div>{project.url}</div>
-    <div>{project.source}</div>
-    <Link to={`/project/${project.id}`}>more</Link>
+const PageProject = ( {project} ) =>{
+
+  if (!project){ 
+    return (<div></div>)
+  }
+
+  return(
+    <div className="row">
+    <div className="col-2">
+    <img src={project.image} style={{width:"300px",}}></img>
     </div>
+    <div className="col-2"/>
+
+    <div className="col-8">
+
+    <h2>{project.title}</h2>
+    
+    <h4 className="mt-4">Description :</h4>
+    <div>{project.description}</div>
+    <h4 className="mt-4">See the project in action :</h4>
+    <a href={project.url} >{project.url}</a>
+    <h4 className="mt-4">Source code:</h4>
+    
+    <a href={project.source}>{project.source}</a>
+
+    <p/>
+    <Link className="btn btn-primary" to='/'>back</Link>
+
+    </div>
+
+
+
+    </div>
+
+
+
 )
+}
 
 
 

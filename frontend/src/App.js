@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Projects from './components/Projects.js'
+import About from './components/About.js'
 import { PageProject} from './components/Project.js'
 
 
@@ -10,11 +11,6 @@ import {
    Route, Link, useMatch,
 } from "react-router-dom"
 
-
-
-const About = () => (
-  <h2>About</h2>
-)
 
 
 
@@ -36,7 +32,7 @@ const App = () => {
       padding : 5
     }
 
-    const match = useMatch('/project/:id')
+    const match = useMatch(':id')
     const project = match ? 
       projects.find( project => project.id === match.params.id ) : null 
   
@@ -44,6 +40,12 @@ const App = () => {
 
     return(
       <div className="container-fluid">
+        <div className="mt-4 p-5 bg-success text-white rounded">
+          <h1>Portfolio</h1>
+          <p>My realisations in machine learning and web programming</p>
+        </div>
+
+
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
           <div className="container-fluid">
           <ul className="navbar-nav">
@@ -58,14 +60,13 @@ const App = () => {
         </nav>
         <div className="container-fluid">
 
-        <h1> Projects </h1>    
 
 
         <Routes>
           <Route path='/'>
             <Route index element={<Projects projects={projects}/>} />
             <Route path='about' element={<About />} />
-            <Route path='project/:id' element={<PageProject project={project} />}  /> 
+            <Route path=':id' element={<PageProject project={project} />}  /> 
           </Route>
          </Routes>
          </div>
