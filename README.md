@@ -77,9 +77,12 @@ Then go to the backend folder and launch Django (preferably from a virtual envir
 
 The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`.
 
-Note that some variables are store in the `.env` file in the backend folder.
+Note that some variables are store in the `.env` file in the backend folder. There should not be any need to change them...
 
-Please refer directly to https://aiki.dev/posts/lean-django/ for more information.
+If you have to install new Python modules (again preferably in the virtual environment), you have to run `pip freeze > requirements.txt` after, so that those modules are also installed in the Docker container.
+
+
+Please refer directly to https://aiki.dev/posts/lean-django/ and https://aiki.dev/posts/django-apps/ for more information about virtual environments, Django and Django applications.
 
 ### Work on the frontend
 
@@ -88,6 +91,9 @@ Now the backend is ready, we are going to launch it with docker-compose. There w
 `docker-compose -f backend.yml up --build --detach`
 
 After this, you can launch the frontend with `npm start` from the frontend folder.
+
+For more information about React and Webpack please visit https://aiki.dev/posts/a-bit-of-react/  and https://aiki.dev/posts/connect-frontend-backend/
+
 
 
 ### Launch the full-stack
@@ -100,12 +106,19 @@ The application should be available at http://localhost:9091/
 
 
 
-## Managing the database on the first launch 
+### Deploying in real world 
 
-For this, I have done it from within the backend container after docker-compose up --build
-There must be a way to automatise it...
+Now everything is ready. You need to bring your files somewhere where Docker and Docker-compose are installed. In my case, I use a Synology NAS. I also use a Dynamic DNS to point to the external IP of my touter and a reverse proxy to forward to the correct port on my NAS. 
+
+In my case, my domain name is https://mapariel.dd-dns.de. The only thing to change are the environments variables BASE_URL and BASE_API in the docker-compose.yml file.  
+
+One the containers are launched, there is the need to initiate the Database within the backend container.
+
+First enter inside the container :
 
 `docker exec -it backend_backend_1 sh`
+
+And then migrate and create the super user.
 
 ```
 python manage.py migrate

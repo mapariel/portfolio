@@ -33,8 +33,8 @@ services:
     build:
       context: ./frontend
       args:
-        #- BASE_URL=http://academie.my-wan.de
-        #- BASE_API=http://academie.my-wan.de/api/
+        #- BASE_URL=https://mapariel.dd-dns.de
+        #- BASE_API=https://mapariel.dd-dns.de/api/
         - BASE_URL=http://localhost:9091
         - BASE_API=http://localhost:9091/api/
       
