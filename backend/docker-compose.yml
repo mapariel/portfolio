@@ -18,7 +18,7 @@ services:
     environment:
       - PORT=80
       - SECRET_KEY=hushush
-      - BASE_URL=http://academie.my-wan.de
+      - BASE_URL=http://localhost:9091
       - DATABASE_URL=postgresql://portfolio:portfolio@db:5432/portfolio
       - ALLOWED_HOSTS=*
       - CORS_ORIGIN_WHITELIST=http://localhost:8080,http://localhost:9091,http://academie.my-wan.de
@@ -32,13 +32,18 @@ services:
   frontend:
     build:
       context: ../frontend
+      args:
+        #- BASE_URL=http://academie.my-wan.de
+        #- BASE_API=http://academie.my-wan.de/api/
+        - BASE_URL=http://localhost:9091
+        - BASE_API=http://localhost:9091/api/
+      
     ports:
       - 9091:80
     volumes:
       - mediafiles:/usr/share/nginx/mediafiles            
     environment:
       - PORT=80
-      - BASE_URL=http://academie.my-wan.de
     depends_on:
       - backend
 

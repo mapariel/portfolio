@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --open --mode development --env BASE_URL=http://localhost:8080/ --env BASE_API=http://localhost:9090/api",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -19,6 +19,8 @@
     "bootstrap": "^5.1.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
     "jquery": "^3.6.0",
@@ -32,6 +34,7 @@
   },
   "dependencies": {
     "history": "^5.2.0",
+    "process": "^0.11.10",
     "react-dotenv": "^0.1.3",
     "react-router-dom": "^6.2.1"
   }

@@ -16,6 +16,8 @@ import {
 
 const App = () => {
 
+  console.log('API: ',BASE_API)
+
 
   const [projects, setProjects] = useState([])
 
