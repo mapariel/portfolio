@@ -94,7 +94,7 @@ After this, you can launch the frontend with `npm start` from the frontend folde
 
 Now you can try the full-stack application with the docker-compose.yml file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
 
-`docker-compose up --build --detach
+`docker-compose up --build --detach`
 
 The application should be available at http://localhost:9091/
 
