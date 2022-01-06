@@ -63,6 +63,26 @@ Finally the frontend container contains a server NGINX to serve the content page
 
 ```
 
+## Instructions
+
+### Launch the database container and work on the backend
+
+During the development phase, we will use Django and Postgresql as a database. We are not going to install Postrgresql on the host, but, instead, will run it through a container.
+
+`docker-compose --f db.yml up --detach`
+
+Then go to the backend folder and launch Django (preferably from a virtual environment).
+
+`python manage.py runserver`
+
+The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`.
+
+Note that some variables are store in the `.env` file in the backend folder.
+
+Please refer directly to https://aiki.dev/posts/lean-django/ for more information.
+
+
+
 
 
 ## Managing the database on the first launch 

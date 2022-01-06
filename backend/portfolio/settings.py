@@ -98,9 +98,15 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 STATIC_URL = "/static/"
 STATIC_ROOT = str(BASE_LOC.path("staticfiles"))
 
-MEDIA_URL = BASE_URL+"/media/"
-MEDIA_ROOT = "/mediafiles/"
-#MEDIA_ROOT = os.path.join(BASE_LOC, "mediafiles")
+
+
+if DEBUG:
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = os.path.join(BASE_LOC, "media")
+else:
+    MEDIA_URL = BASE_URL+"/media/"
+    MEDIA_ROOT = "/mediafiles/"
+#
 
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
