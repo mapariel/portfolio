@@ -81,7 +81,22 @@ Note that some variables are store in the `.env` file in the backend folder.
 
 Please refer directly to https://aiki.dev/posts/lean-django/ for more information.
 
+### Work on the frontend
 
+Now the backend is ready, we are going to launch it with docker-compose. There will be two containers, one for postrgresql and one for Django backend.
+
+`docker-compose -f backend.yml up --build --detach`
+
+After this, you can launch the frontend with `npm start` from the frontend folder.
+
+
+### Launch the full-stack
+
+Now you can try the full-stack application with the docker-compose.yml file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
+
+`docker-compose up --build --detach
+
+The application should be available at http://localhost:9091/
 
 
 
