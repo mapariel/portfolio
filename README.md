@@ -1,6 +1,6 @@
 # Build a portfolio app with Django, React and Docker
 
-This project is largely inspired by the excellent series of article from Pixies : https://aiki.dev/series/pixies-build-an-app-with-django-react-and-docker/. The author explains very clearly there, in a series of 12 articles, how to proceed. There are many articles about the topic on internet, and I am already a bit familiar with those technologies, but I learned a lot by reading this.
+This project is largely inspired by the excellent series of article from Pixies : https://aiki.dev/series/pixies-build-an-app-with-django-react-and-docker/. The author explains very clearly there, in a series of 12 articles, how to proceed. There are many other pages about the topic on internet, and I am already a bit familiar with those technologies, but I learned a lot by reading the latest.
 
 There are some differences with the source articles :
 * Backend (with Django) and frontend (with React) do different things, but this is a detail, if you use this, you will probably make your own.
@@ -12,18 +12,18 @@ There are some differences with the source articles :
 
 ## Instructions
 
-
+If you want to clone and make it work, here are some explanations. If you just want to launch the full-stack you need docker and docker-compose. If you want to modify the backend, you need to install Python (in a virtual environment), if you want to modify the frontend, you need to have nodeJS installed. 
 
 ### Launch the full-stack
 
-Now you can try the full-stack application with the docker-compose.yml file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
+Now you can try the full-stack application with the *docker-compose.yml* file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
 
 `docker-compose up --build --detach`
 
 The application should be available at http://localhost:9091/
 
 
-Once the containers are launched, there is the need to initialize the database from the backend container. You just have to do it one time.  
+Once the containers are launched, there you have to to initialize the database from the backend container. You just have to do it one time.  
 
 First enter inside the container :
 
@@ -43,18 +43,13 @@ Finaly you need to put your projects to the database, go to http://localhost:909
 
 
 
-
-
-
-
-
 ### Launch the database container and work on the backend
 
 During the development phase, we will use Django and Postgresql as a database. We are not going to install Postrgresql on the host, but, instead, will run it through a container.
 
 `docker-compose --f db.yml up --detach`
 
-Then go to the backend folder and install python in a virtual environment. Install also the modules from requirements.txt
+Then go to the backend folder and install Python in a virtual environment. Install also the modules from *requirements.txt*
 
 ```
 $ python3 -m venv .venv
@@ -62,7 +57,7 @@ $ source .venv/bin/activate
 (.venv) $ pip install -r requirements.txt
 ```
 
- The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`. You don't need do do it if you have alreacy done it from the container.
+ The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`. You don't need do do it again if you have already done it from the container.
 
 
 Launch Django `python manage.py runserver` you can access to Djabgo application at  http://127.0.0.1:8000/ and to the admin at http://127.0.0.1:8000/admin
@@ -76,7 +71,7 @@ Please refer directly to https://aiki.dev/posts/lean-django/ and https://aiki.de
 
 ### Work on the frontend
 
-Now the backend is ready, we are going to launch it with docker-compose. There will be two containers, one for postrgresql and one for Django backend.
+Now the backend is ready, we are going to launch it with docker-compose. There will be two containers, one for Postrgresql and one for Django backend.
 
 `docker-compose -f backend.yml up --build --detach`
 
@@ -97,11 +92,6 @@ In my case, my domain name is https://mapariel.dd-dns.de. The only thing to chan
 
 
 
-
-
-
-
-
 ## Principles
 
 In production we have three containers running, the backend (for Django), the frontend (with the javascript build from react and webpack, and the images uploaded) and a last container for the database Postrgres.
@@ -109,7 +99,7 @@ In production we have three containers running, the backend (for Django), the fr
 
 ## How to deal with image fields
 
-First when you put image fields, you need to install the python library Pillow. For some reason, it didn't seem to work fine in the backend-container. I added those lines in the **Dockerfile** in the backend to build Pillow package from the source in the alpine-based image. 
+First when you put image fields, you need to install the python library Pillow. For some reason, it didn't seem to work fine in the backend-container. I added those lines in the *Dockerfile* of the *backend* folder to build Pillow package from the source in the alpine-based image. 
 
 ```
 RUN apk update \
@@ -123,7 +113,7 @@ RUN apk update \
 ```
 
 
-The images uploaded from the Django backend are stored in a volume, this volume is also shared by the frontend container, below the changes in **docker-compose.yml**
+The images uploaded from the Django backend are stored in a volume, this volume is also shared by the frontend container, below the changes in *docker-compose.yml*
 
 ```
   backend:
