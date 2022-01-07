@@ -107,15 +107,22 @@ During the development phase, we will use Django and Postgresql as a database. W
 
 `docker-compose --f db.yml up --detach`
 
-Then go to the backend folder and launch Django (preferably from a virtual environment).
+Then go to the backend folder and install python in a virtual environment. Install also the modules from requirements.txt
 
-`python manage.py runserver`
+```
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ pip install -r requirements.txt
+```
 
-The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`.
+ The first time, you should use  `python manage.py migrate` and `python manage.py createsuperuser`. You don't need do do it if you have alreacy done it from the container.
+
+
+Launch Django `python manage.py runserver` you can access to Djabgo application at  http://127.0.0.1:8000/ and to the admin at http://127.0.0.1:8000/admin
 
 Note that some variables are store in the `.env` file in the backend folder. There should not be any need to change them...
 
-If you have to install new Python modules (again preferably in the virtual environment), you have to run `pip freeze > requirements.txt` after, so that those modules are also installed in the Docker container.
+If you have to install new Python modules, you have to run `pip freeze > requirements.txt` after, so that those modules are also installed in the Docker container.
 
 
 Please refer directly to https://aiki.dev/posts/lean-django/ and https://aiki.dev/posts/django-apps/ for more information about virtual environments, Django and Django applications.
@@ -126,7 +133,7 @@ Now the backend is ready, we are going to launch it with docker-compose. There w
 
 `docker-compose -f backend.yml up --build --detach`
 
-After this, you can launch the frontend with `npm start` from the frontend folder.
+After this, you can install the javascript packages with `npm install` and launch the frontend with `npm start` from the frontend folder. The app is reachable at http://localhost:8080/
 
 For more information about React and Webpack please visit https://aiki.dev/posts/a-bit-of-react/  and https://aiki.dev/posts/connect-frontend-backend/
 
