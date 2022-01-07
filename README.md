@@ -65,6 +65,42 @@ Finally the frontend container contains a server NGINX to serve the content page
 
 ## Instructions
 
+
+
+### Launch the full-stack
+
+Now you can try the full-stack application with the docker-compose.yml file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
+
+`docker-compose up --build --detach`
+
+The application should be available at http://localhost:9091/
+
+
+Once the containers are launched, there is the need to initialize the database from the backend container. You just have to do it one time.  
+
+First enter inside the container :
+
+`docker exec -it portfolio_backend_1 sh`
+
+And then migrate and create the super user.
+
+```
+python manage.py migrate
+
+python manage.py createsuperuser
+```
+
+Then `exit` to leave the container.
+
+Finaly you need to put your projects to the database, go to http://localhost:9090/admin , connect with the superuser infos you have just created, and add one or several projects.
+
+
+
+
+
+
+
+
 ### Launch the database container and work on the backend
 
 During the development phase, we will use Django and Postgresql as a database. We are not going to install Postrgresql on the host, but, instead, will run it through a container.
@@ -96,14 +132,6 @@ For more information about React and Webpack please visit https://aiki.dev/posts
 
 
 
-### Launch the full-stack
-
-Now you can try the full-stack application with the docker-compose.yml file. There will be three containers : one for postgresql, one for the backend and one for the frontend,
-
-`docker-compose up --build --detach`
-
-The application should be available at http://localhost:9091/
-
 
 
 ### Deploying in real world 
@@ -112,16 +140,3 @@ Now everything is ready. You need to bring your files somewhere where Docker and
 
 In my case, my domain name is https://mapariel.dd-dns.de. The only thing to change are the environments variables BASE_URL and BASE_API in the docker-compose.yml file.  
 
-One the containers are launched, there is the need to initiate the Database within the backend container.
-
-First enter inside the container :
-
-`docker exec -it backend_backend_1 sh`
-
-And then migrate and create the super user.
-
-```
-python manage.py migrate
-
-python manage.py createsuperuser
-```
