@@ -4,7 +4,7 @@ This project is largely inspired by the excellent series of article from Pixies 
 
 There are some differences with the source articles :
 * Backend (with Django) and frontend (with React) do different things, but this is a detail, if you use this, you will probably make your own.
-* I don't use Heroku for the deploymnent, instead I have access to a server with docker for it (actually a Sybology NAS)
+* I don't use Heroku for the deploymnent, instead I have access to a server with docker for it (actually a Synology NAS)
 * In my backend, I use the field [ImageField](https://docs.djangoproject.com/en/4.0/ref/models/fields/#imagefield),   and using Medias with Django in production and in Deployment are two different things, I had to come up with a solution for production. For the static files (css), the solution from [Pixies](https://aiki.dev/posts/serving-static-files/) with [whitenoise](http://whitenoise.evans.io/en/stable/) was super easy to implement.
 
 
