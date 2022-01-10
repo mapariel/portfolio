@@ -44,11 +44,11 @@ const App = () => {
       <div className="container-fluid">
         <div className="mt-4 p-5 bg-success text-white rounded">
           <h1>Portfolio</h1>
-          <p>My realisations in machine learning and web programming</p>
+          <p>My projects in machine learning and coding</p>
         </div>
 
 
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark mb-2">
           <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -61,17 +61,14 @@ const App = () => {
           </div>
         </nav>
         <div className="container-fluid">
-
-
-
-        <Routes>
-          <Route path='/'>
-            <Route index element={<Projects projects={projects}/>} />
-            <Route path='about' element={<About />} />
-            <Route path=':id' element={<PageProject project={project} />}  /> 
-          </Route>
-         </Routes>
-         </div>
+          <Routes>
+            <Route path='/'>
+              <Route index element={<Projects projects={projects}/>} />
+              <Route path='about' element={<About />} />
+              <Route path=':id' element={<PageProject project={project} />}  /> 
+            </Route>
+          </Routes>
+          </div>
        </div>   
     )
 }

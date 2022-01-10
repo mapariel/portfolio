@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --env BASE_URL=http://localhost:8080/ --env BASE_API=http://localhost:9090/api",
+    "start": "webpack-dev-server --open --mode development --env BASE_URL=http://localhost:8080/ --env BASE_API=http://localhost:9095/api",
     "build": "webpack --mode production"
   },
   "keywords": [],
