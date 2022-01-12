@@ -3,13 +3,13 @@ version: '3'
 services:
   db:
     image: postgres:12-alpine
-    container_name: db
+    container_name: dbpf
     environment:
       - POSTGRES_USER=portfolio
       - POSTGRES_PASSWORD=portfolio
       - POSTGRES_DB=portfolio
     ports:
-    - 5432:5432
+    - 5433:5432
     volumes:
     - data:/var/lib/postgresql/data
      
@@ -23,7 +23,7 @@ services:
       - ALLOWED_HOSTS=*
       - CORS_ORIGIN_WHITELIST=http://localhost:8080,http://localhost:9091,http://academie.my-wan.de
     ports:
-      - 9090:80
+      - 9095:80
     volumes:  
       - mediafiles:/mediafiles  
     depends_on:
