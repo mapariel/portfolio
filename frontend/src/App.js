@@ -43,13 +43,12 @@ const App = () => {
     return(
       <div className="container-fluid">
         <div className="mt-4 p-5 bg-success text-white rounded">
-          <h1>Portfolio</h1>
-          <p>My projects in machine learning and coding</p>
+          <div  className="display-1"  >Portfolio</div>
+          <p>My realisations in machine learning and web programming</p>
         </div>
 
 
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark mb-2">
-          <div className="container-fluid">
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" style={padding} to="/">home</Link>
@@ -58,18 +57,15 @@ const App = () => {
               <Link className="nav-link" style={padding} to="/about">about</Link>
             </li>
           </ul>
-          </div>
         </nav>
-        <div className="container-fluid">
-          <Routes>
-            <Route path='/'>
-              <Route index element={<Projects projects={projects}/>} />
-              <Route path='about' element={<About />} />
-              <Route path=':id' element={<PageProject project={project} />}  /> 
-            </Route>
-          </Routes>
-          </div>
-       </div>   
+        <Routes>
+          <Route path='/'>
+            <Route index element={<Projects projects={projects}/>} />
+            <Route path='about' element={<About />} />
+            <Route path=':id' element={<PageProject project={project} />}  /> 
+          </Route>
+         </Routes>
+     </div>   
     )
 }
 

@@ -3,16 +3,16 @@ import {Link} from "react-router-dom"
   
 
 const Project = ( {project} ) =>(
-    <div>
-          <img   style={ { height: 200 } } src={project.image} alt="Card image" />
+    <>
+          <img   src={project.image} alt="Card image" />
           <div className="card-body">
           <div>
             <h4 className="card-title">{project.title}</h4>
             <p>{project.in_brief}</p>            
         </div>
-        <Link className="btn btn-primary" to={`/${project.id}`}>more</Link>
+        <Link className="btn btn-primary btn-block" to={`/${project.id}`}>more</Link>
         </div>
-    </div>
+    </>
 )
 
 
@@ -41,8 +41,7 @@ const PageProject = ( {project} ) =>{
     <a href={project.source}>{project.source}</a>
 
     <p/>
-    <Link className="btn btn-primary" to='/'>back</Link>
-
+	   <Link className="btn btn-primary btn-block" to='/'>back</Link>
     </div>
 
 
