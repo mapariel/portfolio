@@ -3,7 +3,7 @@
 This project is largely inspired by the excellent series of article from Pixies : https://aiki.dev/series/pixies-build-an-app-with-django-react-and-docker/. The author explains very clearly there, in a series of 12 articles, how to proceed. There are many other pages about the topic on internet, and I am already a bit familiar with those technologies, but I learned a lot by reading the latest.
 
 There are some differences with the source articles :
-* Backend (with Django) and frontend (with React) do different things, but this is a detail, if you use this, you will probably make your own.
+* Backend (with Django) and frontend (with React) do something else than in the original article. That's the point here; you could use the same technology to build your own application.
 * I don't use Heroku for the deploymnent, instead I have access to a server with docker for it (actually a Synology NAS)
 * In my backend, I use the field [ImageField](https://docs.djangoproject.com/en/4.0/ref/models/fields/#imagefield),   and using Medias with Django in production and in Deployment are two different things, I had to come up with a solution for production. For the static files (css), the solution from [Pixies](https://aiki.dev/posts/serving-static-files/) with [whitenoise](http://whitenoise.evans.io/en/stable/) was super easy to implement.
 
