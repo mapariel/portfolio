@@ -136,7 +136,7 @@ volumes:
 
 ```
 
-Finally the frontend container contains a server NGINX to serve the content pages (HTML and JS) .Actually it is one page, as it is a Single App Page application created with react. The page is accessible at a base url (http://mapariel.dd-dns.de). The request to API pages and images are also send to the same NGINX server. For API, it will take care of sending them to the backend server. Here are the lines of the NGINX configuration file which are taking care of that (in **frontend/default.conf**). In addition, the **Dockerfile** of the frontend must replace the initial default.conf by the modified version.
+Finally the frontend container contains a server NGINX to serve the content pages (HTML and JS) .Actually it is one page, as it is a Single App Page application created with react. The page is accessible at a base url (http://mapariel.asuscomm.com). The request to API pages and images are also send to the same NGINX server. For API, it will take care of sending them to the backend server. Here are the lines of the NGINX configuration file which are taking care of that (in **frontend/default.conf**). In addition, the **Dockerfile** of the frontend must replace the initial default.conf by the modified version.
 ```
     location /media/ {
         alias   /usr/share/nginx/mediafiles/;
