@@ -87,7 +87,7 @@ For more information about React and Webpack please visit https://aiki.dev/posts
 
 Now everything is ready. You need to bring your files somewhere where Docker and Docker-compose are installed. In my case, I use a Synology NAS. I also use a Dynamic DNS to point to the external IP of my touter and a reverse proxy to forward to the correct port on my NAS. 
 
-In my case, my domain name is https://mapariel.dd-dns.de. The only thing to change are the environments variables BASE_URL and BASE_API in the docker-compose.yml file.  
+In my case, your domain name is https://example.com. The only thing to change are the environments variables BASE_URL and BASE_API in the docker-compose.yml file.  
 
 
 
