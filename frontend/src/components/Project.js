@@ -10,7 +10,7 @@ const Project = ( {project} ) =>(
             <h4 className="card-title">{project.title}</h4>
             <p>{project.in_brief}</p>            
         </div>
-        <Link className="btn btn-primary btn-block" to={`/${project.id}`}>more</Link>
+        <Link className="btn btn-primary btn-block" to={`/${project.slug}`}>more</Link>
         </div>
     </>
 )

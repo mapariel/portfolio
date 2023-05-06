@@ -10,13 +10,6 @@ const About = () => (
 
         </div>
 
-
-        <div className='mt-3'> Github account : <a href='https://github.com/mapariel/'>https://github.com/mapariel/</a> </div>
-
-        <div className='mt-3'> Linkedin account : <a href='https://www.linkedin.com/in/martin-moritz-helsinki/'>https://www.linkedin.com/in/martin-moritz-helsinki/</a> 
-        <p/>
-        <Link className="btn btn-primary" to='/'>back</Link>
-        
         
         </div>
 

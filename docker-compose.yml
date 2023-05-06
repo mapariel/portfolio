@@ -21,7 +21,7 @@ services:
       - BASE_URL=http://localhost:9091
       - DATABASE_URL=postgresql://portfolio:portfolio@db:5432/portfolio
       - ALLOWED_HOSTS=*
-      - CORS_ORIGIN_WHITELIST=http://localhost:8080,http://localhost:9091,http://academie.my-wan.de
+      - CORS_ORIGIN_WHITELIST=http://localhost:8080,http://localhost:9091
     ports:
       - 9090:80
     volumes:  

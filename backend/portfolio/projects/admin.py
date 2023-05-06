@@ -13,6 +13,7 @@ class ProjectsAdmin(admin.ModelAdmin):
         "updated",
         "url",
     )
+    prepopulated_fields = {"slug": ("title",)}
 
     def created(self, obj):
         return arrow.get(obj.created_at).humanize()

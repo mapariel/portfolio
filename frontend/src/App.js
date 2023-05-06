@@ -36,7 +36,7 @@ const App = () => {
 
     const match = useMatch(':id')
     const project = match ? 
-      projects.find( project => project.id === match.params.id ) : null 
+      projects.find( project => project.slug === match.params.id ) : null 
   
 
 
